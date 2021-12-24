@@ -18,7 +18,7 @@
             "directory": path
         }
         let resp = await fetch(
-            'http://localhost/cgi-bin/list.py', 
+            'http://172.17.0.2/cgi-bin/list.py', 
             {
                 method: 'POST',
                 body: JSON.stringify(data)
