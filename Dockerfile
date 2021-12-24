@@ -51,7 +51,7 @@ RUN apt-get update && apt-get install -y nodejs npm
 
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get update && apt-get install -y nodejs
-
+COPY ./public_html ./public_html
 COPY rollup.config.js ./
 COPY package*.json ./
 
