@@ -57,7 +57,6 @@ COPY package*.json ./
 RUN npm install
 
 COPY ./src ./src
-COPY ./public ./public
 
 RUN npm run-script build
 COPY cgi-bin /production/www/cgi-bin
