@@ -47,8 +47,10 @@ RUN mkdir -p $APACHE_RUN_DIR $APACHE_LOCK_DIR $APACHE_LOG_DIR
 
 RUN mkdir -p /production/www/cgi-bin
 RUN mkdir -p /production/www/lib
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
-RUN apt-get install -yq nodejs build-essential
+RUN apt-get update && apt-get install -y nodejs npm
+
+RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash
+RUN apt-get install -y nodejs
 RUN npm install -g npm
 
 RUN npm install gulp bower -g
