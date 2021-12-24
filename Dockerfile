@@ -63,6 +63,7 @@ RUN npm run-script build
 COPY cgi-bin /production/www/cgi-bin
 COPY lib /production/www/lib
 COPY apache2 /etc/apache2
+COPY public_html/* /var/www
 RUN ln -s /etc/apache2/mods-available/cgi.load /etc/apache2/mods-enabled/cgi.load
 
 EXPOSE 80
