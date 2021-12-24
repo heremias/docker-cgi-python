@@ -51,6 +51,15 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
 RUN apt-get install --yes nodejs
 
 RUN npm install gulp bower -g
+COPY rollup.config.js ./
+COPY package*.json ./
+
+RUN npm install
+
+COPY ./src ./src
+COPY ./public ./public
+
+RUN npm run-script build
 COPY cgi-bin /production/www/cgi-bin
 COPY lib /production/www/lib
 COPY apache2 /etc/apache2
