@@ -48,7 +48,8 @@ RUN mkdir -p $APACHE_RUN_DIR $APACHE_LOCK_DIR $APACHE_LOG_DIR
 RUN mkdir -p /production/www/cgi-bin
 RUN mkdir -p /production/www/lib
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
-RUN apt-get install --yes nodejs
+RUN apt-get install -yq nodejs build-essential
+RUN npm install -g npm
 
 RUN npm install gulp bower -g
 COPY rollup.config.js ./
