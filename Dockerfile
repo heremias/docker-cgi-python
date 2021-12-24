@@ -9,6 +9,7 @@ RUN apt update
 RUN apt -y install software-properties-common
 RUN apt -y install apache2
 RUN apt -y install wget
+RUN apt-get -y install sudo 
 
 # Python2.7
 RUN wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
