@@ -45,8 +45,8 @@ ENV APACHE_RUN_DIR /var/run/apache2
 ENV APACHE_LOCK_DIR /var/lock/apache2
 RUN mkdir -p $APACHE_RUN_DIR $APACHE_LOCK_DIR $APACHE_LOG_DIR
 
-RUN mkdir -p /production/www/cgi-bin
-RUN mkdir -p /production/www/lib
+RUN mkdir -p /var/www/cgi-bin
+RUN mkdir -p /var/www/lib
 RUN apt-get update && apt-get install -y nodejs npm
 
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
@@ -60,8 +60,8 @@ RUN npm install
 COPY ./src ./src
 
 RUN npm run-script build
-COPY cgi-bin /production/www/cgi-bin
-COPY lib /production/www/lib
+COPY cgi-bin /var/www/cgi-bin
+COPY lib /var/www/lib
 COPY apache2 /etc/apache2
 RUN cp -r public_html/* /var/www/html
 
