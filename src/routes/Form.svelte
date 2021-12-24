@@ -30,7 +30,7 @@
         new_data["option"] = key;
         
         let resp = await fetch(
-            `http://localhost:8883/cgi-bin/${$formPath}/menu.py`,
+            `http://localhost/cgi-bin/${$formPath}/menu.py`,
             {
                 method: 'POST',
                 body: JSON.stringify(new_data)
