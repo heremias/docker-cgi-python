@@ -49,7 +49,7 @@ RUN mkdir -p /production/www/cgi-bin
 RUN mkdir -p /production/www/lib
 RUN apt-get update && apt-get install -y nodejs npm
 
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get update && apt-get install -y nodejs
 
 COPY rollup.config.js ./
